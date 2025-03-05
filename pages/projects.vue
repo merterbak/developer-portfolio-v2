@@ -80,7 +80,7 @@ import DevConfig from '~/developer.json';
 
 const config = ref(DevConfig)
 
-const techs = ['Huggingface', 'React', 'HTML', 'CSS', 'Vue', 'Angular', 'Gatsby', 'Flutter']
+const techs = ['Hugging Face', 'GitHub']
 const filters = ref(['all'])
 const showFilters = ref(true)
 const projects = ref(config.value.projects)

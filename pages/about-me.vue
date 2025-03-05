@@ -6,14 +6,7 @@
     </div>
 
     <div id="page-menu" class="w-full flex">
-
-      <!-- DESKTOP section icons -->
-      <div id="sections">
-        <div id="section-icon" v-for="section in config.about.sections" :key="section.title" :class="{ active: isSectionActive(section.title)}">
-          <img :id="'section-icon-' + section.title" :src="section.icon" :alt="section.title + '-section'" @click="focusCurrentSection(section)">
-        </div>
-      </div>
-
+      
       <!-- focused section content -->
       <div id="section-content" class="hidden lg:block w-full h-full border-right">
 

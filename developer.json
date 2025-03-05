@@ -36,10 +36,10 @@
                     },
                     "education": {
                         "title": "education",
-                        "description": "<br>I have always been passionate about lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+                        "description": "<br>I have always been passionate about trends",
                         "files": {
-                            "high-school": "I have been in 'Las viñas'...",
-                            "university": "The university..."
+                            "Ozel Ege Highschool": "",
+                            "Bahcesehir University": "Bahcesehir University"
                         }
                     }
                 }
@@ -116,43 +116,65 @@
             "title": "_RAG-app-0",
             "description": "RAG application with auto-merging capabilities that can comprehend PDF and text files, and respond to questions using a LLM.",
             "img": "/images/projects/ui-animations2.png",
-            "tech": ["Github"],
+            "tech": ["GitHub"],
             "url": "https://github.com/merterbak/RAG-app-0"
         },
         "2": {
             "title": "_stroke-prediction-model",
             "description": "About Stroke prediction model utilizing a diverse set of health, lifestyle, and stroke history features to forecast an individual's likelihood of experiencing a stroke. ",
             "img": "/images/projects/ai-resources.png",
-            "tech": ["Gatsby"],
+            "tech": ["GitHub"],
             "url": "https://github.com/merterbak/stroke-prediction-model"
         },
         "3": {
             "title": "_stock-report-analyzer",
             "description": "This projects get latest filings for a given stock symbol, extracting key financial data and generating a PDF report.",
             "img": "/images/projects/worldmap.png",
-            "tech": ["Angular"],
+            "tech": ["GitHub"],
             "url": "https://github.com/merterbak/stock-report-analyzer"
         },
         "4": {
             "title": "_phi-4",
             "description": "Chat with Microsoft's Phi-4 or Phi-4-mini-instruct models",
             "img": "/images/projects/ui-animations.png",
-            "tech": ["Huggingface"],
+            "tech": ["Hugging Face"],
             "url": "https://huggingface.co/spaces/merterbak/phi-4"
         },
         "5": {
             "title": "_grok",
             "description": "Grok 2 Vision Chatbot",
             "img": "/images/projects/tetris-game.png",
-            "tech": ["Huggingface"],
+            "tech": ["Hugging Face"],
             "url": "https://huggingface.co/spaces/merterbak/grok"
         },
         "6": {
             "title": "_auraflow",
             "description": "AuraFlow v0.3 Image Generator with styles and settings",
             "img": "/images/projects/ethereum.png",
-            "tech": ["Vue"],
+            "tech": ["Hugging Face"],
             "url": "https://huggingface.co/spaces/merterbak/AuraFlow"
+        },
+        "7": {
+            "title": "_insider-codecraft-bootcamp",
+            "description": "Insider Codecraft Bootcamp's HTML, CSS, JavaScript Projects ",
+            "img": "/images/projects/ui-animations2.png",
+            "tech": ["GitHub"],
+            "url": "https://github.com/merterbak/Insider-CodeCraft-Bootcamp"
+        },
+        "8": {
+            "title": "_js-projects",
+            "description": "Bunch of HTML, CSS, JavaScript Projects to learn",
+            "img": "/images/projects/ai-resources.png",
+            "tech": ["GitHub"],
+            "url": "https://github.com/merterbak/jsprojects"
+        },
+        "9": {
+            "title": "_RAG-Llama",
+            "description": "Multi-Document RAG with LLama 3.1-8B Model",
+            "img": "/images/projects/worldmap.png",
+            "tech": ["Hugging Face"],
+            "url": "https://huggingface.co/spaces/merterbak/RAG-Llama"
         }
+        
     }
 }
