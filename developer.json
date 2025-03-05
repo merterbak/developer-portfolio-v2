@@ -1,7 +1,7 @@
 {
-    "name": "Micheal Weaver",
+    "name": "Mert Erbak",
     "logo_name": "micheal-weaver",
-    "role": "Front-end developer",
+    "role": "AI Enthuasist",
     "about": {
         "sections": {
             "professional-info": {
@@ -64,15 +64,15 @@
         "direct": {
             "title": "contacts",
             "sources": {
-                "email": "user@gmail.com",
-                "phone": "+3598246359"
+                "email": "mert.erbak@gmail.com",
+                "phone": ""
             }
         },
         "social": {
             "github": {
                 "title": "Github profile",
                 "url": "https://github.com/",
-                "user": "username"
+                "user": "merterbak"
             },
             "facebook": {
                 "title": "Facebook profile",
@@ -82,7 +82,7 @@
             "twitter": {
                 "title": "Twitter account",
                 "url": "https://twitter.com/",
-                "user": "username"
+                "user": "merterbak"
             }
         },
         "find_me_also_in": {
@@ -102,12 +102,8 @@
                     "title": "Instagram account",
                     "url": "https://instagram.com/",
                     "user": "username"
-                },
-                "twitch": {
-                    "title": "Twitch profile",
-                    "url": "https://twitch.com/",
-                    "user": "username"
                 }
+                
             }
         }
     },
@@ -117,11 +113,11 @@
     },
     "projects": {
         "1": {
-            "title": "_ui-animations",
-            "description": "Duis aute irure dolor in velit esse cillum dolore.",
+            "title": "_RAG-app-0",
+            "description": "RAG application with auto-merging capabilities that can comprehend PDF and text files, and respond to questions using a LLM.",
             "img": "/images/projects/ui-animations2.png",
-            "tech": ["Flutter"],
-            "url": "https://github.com/"
+            "tech": ["Github"],
+            "url": "https://github.com/merterbak/RAG-app-0"
         },
         "2": {
             "title": "_ai-resources",
@@ -138,18 +134,18 @@
             "url": "https://github.com/"
         },
         "4": {
-            "title": "_ui-animations",
-            "description": "Duis aute irure dolor in velit esse cillum dolore.",
+            "title": "_phi-4",
+            "description": "Chat with Microsoft's Phi-4 or Phi-4-mini-instruct models",
             "img": "/images/projects/ui-animations.png",
-            "tech": ["React"],
-            "url": "https://github.com/"
+            "tech": ["Huggingface"],
+            "url": "https://huggingface.co/spaces/merterbak/phi-4"
         },
         "5": {
-            "title": "_tetris-game",
-            "description": "Duis aute irure dolor in velit esse cillum dolore.",
+            "title": "_grok",
+            "description": "Grok 2 Vision Chatbot",
             "img": "/images/projects/tetris-game.png",
-            "tech": ["React"],
-            "url": "https://github.com/"
+            "tech": ["Huggingface"],
+            "url": "https://huggingface.co/spaces/merterbak/grok"
         },
         "6": {
             "title": "_ethereum",
