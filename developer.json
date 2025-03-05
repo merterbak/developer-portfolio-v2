@@ -28,11 +28,11 @@
                 "info": { 
                     "bio": {
                         "title": "bio",
-                        "description": "<br> About me <br> I have 5 years of experience in web development lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat  nulla pariatur. Excepteur sint occaecat  officia deserunt mollit anim id est laborum."
+                        "description": "<br> About me <br> Website is still in progress now it will be fully done by 24 hours"
                     },
                     "interests": {
                         "title": "interests",
-                        "description": "<br>I am constantly learning and lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+                        "description": "<br>I am constantly learning"
                     },
                     "education": {
                         "title": "education",
@@ -120,18 +120,18 @@
             "url": "https://github.com/merterbak/RAG-app-0"
         },
         "2": {
-            "title": "_ai-resources",
-            "description": "Duis aute irure dolor in velit esse cillum dolore.",
+            "title": "_stroke-prediction-model",
+            "description": "About Stroke prediction model utilizing a diverse set of health, lifestyle, and stroke history features to forecast an individual's likelihood of experiencing a stroke. ",
             "img": "/images/projects/ai-resources.png",
             "tech": ["Gatsby"],
-            "url": "https://github.com/"
+            "url": "https://github.com/merterbak/stroke-prediction-model"
         },
         "3": {
-            "title": "_worldmap",
-            "description": "Duis aute irure dolor in velit esse cillum dolore.",
+            "title": "_stock-report-analyzer",
+            "description": "This projects get latest filings for a given stock symbol, extracting key financial data and generating a PDF report.",
             "img": "/images/projects/worldmap.png",
             "tech": ["Angular"],
-            "url": "https://github.com/"
+            "url": "https://github.com/merterbak/stock-report-analyzer"
         },
         "4": {
             "title": "_phi-4",
@@ -148,11 +148,11 @@
             "url": "https://huggingface.co/spaces/merterbak/grok"
         },
         "6": {
-            "title": "_ethereum",
-            "description": "Duis aute irure dolor in velit esse cillum dolore.",
+            "title": "_auraflow",
+            "description": "AuraFlow v0.3 Image Generator with styles and settings",
             "img": "/images/projects/ethereum.png",
             "tech": ["Vue"],
-            "url": "https://github.com/"
+            "url": "https://huggingface.co/spaces/merterbak/AuraFlow"
         }
     }
 }
