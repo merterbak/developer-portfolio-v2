@@ -23,7 +23,7 @@
 					// complete the game to continue
 				</span>
 				<span :class="{hide: isMobile}">
-					// you can also see it on my Github page
+					// you can also see my Github page
 				</span>
 				<span :class="{hide: !isMobile}">
 					// find my profile on Github:
