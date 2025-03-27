@@ -129,27 +129,46 @@
         "7": {
             "title": "_insider-codecraft-bootcamp",
             "description": "Insider Codecraft Bootcamp's HTML, CSS, JavaScript Projects ",
+            "img": "/images/projects/ui-animations2.png",
             "tech": ["GitHub"],
             "url": "https://github.com/merterbak/Insider-CodeCraft-Bootcamp"
         },
         "8": {
             "title": "_js-projects",
-            "description": "Bunch of HTML, CSS, JavaScript Projects to learn",
+            "description": "Bunch of HTML, CSS, JavaScript Projects",
+            "img": "/images/projects/ai-resources.png",
             "tech": ["GitHub"],
             "url": "https://github.com/merterbak/jsprojects"
         },
         "9": {
+            "title": "_gemma-3",
+            "description": "A space with multimodal gemma-3-12b-it or gemma-3-4b-it models",
+            "tech": ["Hugging Face"],
+            "img": "/images/projects/tetris-game.png",
+            "url": "https://huggingface.co/spaces/merterbak/gemma-3"
+        },
+        "10": {
             "title": "_RAG-Llama",
             "description": "Multi-Document RAG with LLama 3.1-8B Model",
+            "img": "/images/projects/worldmap.png",
             "tech": ["Hugging Face"],
             "url": "https://huggingface.co/spaces/merterbak/RAG-Llama"
         },
-        "10": {
+        "11": {
             "title": "_DeepSeek-R1-Distill-Qwen-1.5B",
             "description": "DeepSeek-R1-Distill-Qwen-1.5B model running on CPU",
+            "img": "/images/projects/ui-animations.png",
             "tech": ["Hugging Face"],
             "url": "https://huggingface.co/spaces/merterbak/DeepSeek-R1-Distill-Qwen-1.5B"
+        },
+        "12": {
+            "title": "_mistral-ocr",
+            "description": "A space with Mistral's OCR method",
+            "img": "/images/projects/ethereum.png",
+            "tech": ["Hugging Face"],
+            "url": "https://huggingface.co/spaces/merterbak/Mistral-OCR"
         }
+        
         
     }
 }
