@@ -28,7 +28,7 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'A awesome developer portfolio design.' },
+        { hid: 'description', name: 'description', content: 'Hi all, I am Mert Erbak' },
         { hid: 'og:title', property: 'og:title', content: siteTitle },
         { hid: 'og:description', property: 'og:description', content: 'Hi all, I am Mert Erbak' },
         { hid: 'og:image', property: 'og:image', content: 'demo-share.jpg' },
