@@ -10,15 +10,15 @@
                 "info": { 
                     "bio": {
                         "title": "bio",
-                        "description": "<br> About me <br> Website is still in progress now it will be fully done by 24 hours"
+                        "description": "<br> About me <br> Website is still in progress"
                     },
                     "interests": {
                         "title": "interests",
-                        "description": "<br>I am constantly learning"
+                        "description": "<br>"
                     },
                     "education": {
                         "title": "education",
-                        "description": "<br>I have always been passionate about trends",
+                        "description": "<br>",
                         "files": {
                             "Ozel Ege Highschool": "",
                             "Bahcesehir University": "Bahcesehir University"
