@@ -1,8 +1,8 @@
 <template>
   <MobileMenu/>
-  <AppHeader/>
-  <NuxtPage data-aos="fade-in"/>
-  <AppFooter/>
+  <NuxtLayout>
+    <NuxtPage data-aos="fade-in"/>
+  </NuxtLayout>
 </template>
 
 <script>

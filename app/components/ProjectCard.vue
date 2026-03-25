@@ -1,9 +1,8 @@
 <template>
-    <div id="project" :key="key" class="lg:mx-5">
+    <div id="project" class="lg:mx-5">
 
         <span class="flex text-sm my-3">
-            <h3 v-if="index == null" class="text-purplefy font-fira_bold mr-3">Project {{ key + 1 }}</h3>
-            <h3 v-else class="text-purplefy font-fira_bold mr-3">Project {{ index }}</h3>
+            <h3 class="text-purplefy font-fira_bold mr-3">Project {{ index + 1 }}</h3>
             <h4 class="font-fira_retina text-menu-text"> // {{ project.title }}</h4>
         </span>
 
@@ -28,7 +27,7 @@
 </template>
 
 <script setup>
-const { project, key, index } = defineProps(['project', 'key', 'index'])
+const { project, index } = defineProps(['project', 'index'])
 </script>
 
 <style scoped>

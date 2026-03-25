@@ -1,9 +1,9 @@
-const config = require('./developer.json')
+import config from './developer.json'
 const siteTitle = `${config.name} | ${config.role}`
 
 
 /*
- * Nuxt 3 Config File
+ * Nuxt 4 Config File
  Usage: https://nuxt.com/docs/api/configuration/nuxt-config
  */
 export default defineNuxtConfig({
@@ -28,13 +28,12 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { hid: 'description', name: 'description', content: 'Hi all, I am Mert Erbak' },
-        { hid: 'og:title', property: 'og:title', content: siteTitle },
-        { hid: 'og:description', property: 'og:description', content: 'Hi all, I am Mert Erbak' },
-        { hid: 'og:image', property: 'og:image', content: 'demo-share.jpg' },
-        { hid: 'og:url', property: 'og:url', content: 'https://merterbak.com/' },
+        { name: 'description', content: 'Hi all, I am Mert Erbak' },
+        { property: 'og:title', content: siteTitle },
+        { property: 'og:description', content: 'Hi all, I am Mert Erbak' },
+        { property: 'og:image', content: 'demo-share.jpg' },
+        { property: 'og:url', content: 'https://merterbak.com/' },
         { name: 'theme-color', content: '#010C15' },
-        // ...
       ],
       link: [
         { rel: 'manifest', href: 'pwa/manifest.json' },
@@ -65,8 +64,7 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/tailwind.css',
     configPath: 'tailwind.config',
-    exposeConfig: true, // true to resolve the tailwind config in runtime. https://tailwindcss.nuxt.dev/getting-started/options/#exposeconfig
-    injectPosition: 0,
+    exposeConfig: true,
     viewer: false,
   },
 

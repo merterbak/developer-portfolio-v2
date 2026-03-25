@@ -14,7 +14,7 @@
                     <img src="/icons/social/x.svg" alt="twitter"/>
                 </NuxtLink>
                 <NuxtLink :to="social.huggingface.url + social.huggingface.user" target="_blank" class="flex justify-center items-center">
-                    <img src="/icons/social/Hugging Face.svg" alt="Hugging Face"/>
+                    <img src="/icons/social/huggingface.svg" alt="Hugging Face"/>
                 </NuxtLink>
                 
                 <NuxtLink :to="social.github.url + social.github.user" target="_blank" class="flex md:hidden justify-center items-center">
