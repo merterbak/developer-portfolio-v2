@@ -226,17 +226,19 @@
   }
   
   .anim-typewriter{
-	animation: typewriter 3.5s steps(40) 1s 1 normal both,
-			   blinkTextCursor 800ms steps(40) infinite normal;
+	animation: typewriter 7s steps(40) infinite,
+			   blinkTextCursor 1.2s ease-in-out infinite;
   }
-  
+
   @keyframes typewriter{
-	from{width: 0;}
-	to{width: 100%;}
+	0%{width: 0;}
+	30%{width: 100%;}
+	70%{width: 100%;}
+	100%{width: 0;}
   }
-  
+
   @keyframes blinkTextCursor{
-	from{border-right-color: rgba(255,255,255,.75);}
+	from{border-right-color: rgba(255,255,255,.35);}
 	to{border-right-color: transparent;}
   }
   

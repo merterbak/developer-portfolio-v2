@@ -53,6 +53,7 @@
       </div>
 
       <!-- projects -->
+      <p class="font-fira_retina text-menu-text text-sm pt-6 px-8 lg:px-20">// some of projects</p>
       <div id="projects-case" class="grid grid-cols-1 lg:grid-cols-2 max-w-full h-full overflow-scroll lg:self-center">
         <div id="not-found"
           class="hidden flex flex-col font-fira_retina text-menu-text my-5 h-full justify-center items-center">
@@ -75,15 +76,60 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, provide } from 'vue'
 import DevConfig from '~/developer.json';
 
 const config = ref(DevConfig)
 
-const techs = ['Hugging Face', 'GitHub']
+const techs = ['GitHub', 'Hugging Face']
 const filters = ref(['all'])
 const showFilters = ref(true)
 const projects = ref(config.value.projects)
+
+const githubCache = ref({})
+const hfCache = ref({})
+provide('githubCache', githubCache)
+provide('hfCache', hfCache)
+
+onMounted(async () => {
+  // Load from localStorage cache (valid for 1 hour)
+  const cached = localStorage.getItem('ghRepoCache')
+  const cachedTime = localStorage.getItem('ghRepoCacheTime')
+  if (cached && cachedTime && Date.now() - Number(cachedTime) < 3600000) {
+    githubCache.value = JSON.parse(cached)
+  } else {
+    try {
+      const res = await fetch('https://api.github.com/users/merterbak/repos?per_page=100')
+      if (res.ok) {
+        const repos = await res.json()
+        const map = {}
+        repos.forEach(r => { map[r.full_name.toLowerCase()] = r })
+        githubCache.value = map
+        localStorage.setItem('ghRepoCache', JSON.stringify(map))
+        localStorage.setItem('ghRepoCacheTime', String(Date.now()))
+      }
+    } catch (e) {}
+  }
+
+  // HF spaces
+  const hfCached = localStorage.getItem('hfSpaceCache')
+  const hfCachedTime = localStorage.getItem('hfSpaceCacheTime')
+  if (hfCached && hfCachedTime && Date.now() - Number(hfCachedTime) < 3600000) {
+    hfCache.value = JSON.parse(hfCached)
+  } else {
+    try {
+      const res = await fetch('https://huggingface.co/api/spaces?author=merterbak&limit=100')
+      if (res.ok) {
+        const spaces = await res.json()
+        const map = {}
+        spaces.forEach(s => { map[s.id.toLowerCase()] = s })
+        hfCache.value = map
+        localStorage.setItem('hfSpaceCache', JSON.stringify(map))
+        localStorage.setItem('hfSpaceCacheTime', String(Date.now()))
+      }
+    } catch (e) {}
+  }
+})
 
 function filterProjects(tech) {
   document.getElementById('icon-tech-' + tech).classList.toggle('active')
