@@ -2,7 +2,7 @@
     <div id="project" class="lg:mx-5">
 
         <span class="flex text-sm my-3">
-            <h3 class="text-purplefy font-fira_bold mr-3">Project {{ index + 1 }}</h3>
+            <h3 class="text-purplefy font-fira_bold mr-3">Project {{ Number(index) + 1 }}</h3>
             <h4 class="font-fira_retina text-menu-text"> // {{ project.title }}</h4>
         </span>
 

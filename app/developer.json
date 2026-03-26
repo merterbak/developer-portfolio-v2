@@ -10,7 +10,7 @@
                 "info": { 
                     "bio": {
                         "title": "bio",
-                        "description": " <br> Website is still in progress I will update this personal info pages on my free time"
+                        "description": "<br>"
                     },
                     "interests": {
                         "title": "interests",
@@ -54,6 +54,16 @@
             "huggingface": {
                 "title": "Hugging Face account",
                 "url": "https://huggingface.co/",
+                "user": "merterbak"
+            },
+            "leetcode": {
+                "title": "LeetCode profile",
+                "url": "https://leetcode.com/u/",
+                "user": "merterbak"
+            },
+            "hackerrank": {
+                "title": "HackerRank profile",
+                "url": "https://www.hackerrank.com/profile/",
                 "user": "merterbak"
             }
         },

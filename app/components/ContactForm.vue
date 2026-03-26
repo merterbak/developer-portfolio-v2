@@ -1,5 +1,11 @@
 <template>
-    <form id="contact-form" class="text-sm">
+    <div v-if="submitted" class="flex flex-col items-center justify-center h-full text-center">
+        <span class="text-greenfy text-lg font-fira_bold mb-3">Thank you!</span>
+        <p class="font-fira_retina text-menu-text text-sm mb-5">Your message has been sent successfully.</p>
+        <button id="submit-button" class="py-2 px-4" @click="submitted = false">send-new-message</button>
+    </div>
+    <form v-else id="contact-form" class="text-sm" @submit.prevent="submitForm">
+        <p class="font-fira_retina text-menu-text text-sm mb-5">// This is the fastest way to contact me. Drop a message and I'll get back to you shortly.</p>
         <div class="flex flex-col">
             <label for="name-input" class="mb-3">_name:</label>
             <input type="text" id="name-input" name="name" :placeholder="name" class="p-2 mb-5 placeholder-slate-600" required>
@@ -12,40 +18,34 @@
             <label for="message-input" class="mb-3">_message:</label>
             <textarea id="message-input" name="message" :placeholder="message" class="placeholder-slate-600" required></textarea>
         </div>
-        <button id="submit-button" type="submit" class="py-2 px-4">submit-message</button>
+        <button id="submit-button" type="submit" class="py-2 px-4" :disabled="submitting">
+            {{ submitting ? 'sending...' : 'submit-message' }}
+        </button>
     </form>
 </template>
 
-<script>
+<script setup>
+const props = defineProps({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    message: { type: String, required: true }
+})
 
+const submitted = ref(false)
+const submitting = ref(false)
 
-export default {
-    name: 'ContactForm',
-    props: {
-        name: {
-            type: String,
-            required: true
-        },
-        email: {
-            type: String,
-            required: true
-        },
-        message: {
-            type: String,
-            required: true
-        }
-    },
-    mounted() {
-        document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            const name = document.querySelector('input[name="name"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const message = document.querySelector('textarea[name="message"]').value;
-            
-            // Here the code to send the email
-            
-        });
-    }
+async function submitForm(e) {
+    submitting.value = true
+    const form = e.target
+    const data = new FormData(form)
+    await fetch('https://formspree.io/f/mgopeqvb', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+    })
+    submitting.value = false
+    submitted.value = true
+    form.reset()
 }
 </script>
 

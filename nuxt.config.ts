@@ -1,4 +1,4 @@
-import config from './developer.json'
+import config from './app/developer.json'
 const siteTitle = `${config.name} | ${config.role}`
 
 
@@ -28,9 +28,9 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'Hi all, I am Mert Erbak' },
+        { name: 'description', content: "Hi there, I'm Mert Erbak" },
         { property: 'og:title', content: siteTitle },
-        { property: 'og:description', content: 'Hi all, I am Mert Erbak' },
+        { property: 'og:description', content: "Hi there, I'm Mert Erbak" },
         { property: 'og:image', content: 'demo-share.jpg' },
         { property: 'og:url', content: 'https://merterbak.com/' },
         { name: 'theme-color', content: '#010C15' },

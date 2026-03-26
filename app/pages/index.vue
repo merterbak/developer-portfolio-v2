@@ -6,7 +6,7 @@
 	  <section class="hero">
 		<div class="head">
 		  <span>
-			Hi all, I am
+			Hi there, I'm
 		  </span>
 		  <h1>{{ config.name }}</h1>
 		  <span class="diple flex">

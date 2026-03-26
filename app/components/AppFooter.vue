@@ -7,6 +7,12 @@
                 find me in:
             </span>
             <div id="social-icons" class="flex">
+                <NuxtLink :to="social.hackerrank.url + social.hackerrank.user" target="_blank" class="flex justify-center items-center">
+                    <img src="/icons/social/hackerrank.svg" alt="HackerRank"/>
+                </NuxtLink>
+                <NuxtLink :to="social.leetcode.url + social.leetcode.user" target="_blank" class="flex justify-center items-center">
+                    <img src="/icons/social/leetcode.svg" alt="LeetCode"/>
+                </NuxtLink>
                 <NuxtLink :to="social.linkedin.url + social.linkedin.user" target="_blank" class="flex justify-center items-center">
                     <img src="/icons/social/linkedin.svg" alt="linkedin"/>
                 </NuxtLink>
@@ -16,7 +22,7 @@
                 <NuxtLink :to="social.huggingface.url + social.huggingface.user" target="_blank" class="flex justify-center items-center">
                     <img src="/icons/social/huggingface.svg" alt="Hugging Face"/>
                 </NuxtLink>
-                
+
                 <NuxtLink :to="social.github.url + social.github.user" target="_blank" class="flex md:hidden justify-center items-center">
                 <img src="/icons/social/github.svg" alt="github"/>
             </NuxtLink>
