@@ -4,7 +4,7 @@
     <!-- header -->
     <div id="mobile-header" class="w-full h-16 flex justify-between items-center">
       <NuxtLink class="text-menu-text font-fira_retina flex h-full items-center mx-5" to="/" @click="goHome()">
-        {{ config.logoName }}
+        {{ config.logo_name }}
       </NuxtLink>
       <img src="/icons/burger.svg" alt="Open menu" v-if="!menuOpen" @click="toggleMobileMenu()"
         class="w-5 h-5 mx-5 my-auto" />
