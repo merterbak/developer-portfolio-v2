@@ -245,15 +245,18 @@
   @media (max-width: 768px) {
 	#hello {
 	  padding-left: 0;
+	  height: auto !important;
+	  min-height: 0;
+	  overflow: visible;
 	}
 	#hello .hero {
 	  display: flex;
 	  flex-direction: column;
-	  justify-content: space-between;
+	  justify-content: center;
 	  margin: 1.75rem;
 	}
 	.head {
-	  padding-top: 4rem;
+	  padding-top: 1rem;
 	}
 	#hello .head h2, #hello .head .diple {
 	  font-size: 20px;

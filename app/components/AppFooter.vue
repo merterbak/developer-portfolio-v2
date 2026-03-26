@@ -92,6 +92,13 @@ footer > a > img {
 
     #social-title {
         border-right: none;
+        font-size: 11px;
+        padding: 0 6px;
+        white-space: nowrap;
+    }
+
+    #social-icons {
+        overflow: hidden;
     }
 
     #social-icons > a {
