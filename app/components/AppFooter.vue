@@ -85,7 +85,10 @@ footer > a > img {
     opacity: 1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    footer {
+        margin-top: auto;
+    }
 
     #social-title {
         border-right: none;
@@ -97,8 +100,8 @@ footer > a > img {
     }
 
     #social-icons > a > img {
-        width: 1.5rem; /* 20px */
-        height: 1.5rem; /* 20px */
+        width: 1.5rem;
+        height: 1.5rem;
   }
 }
 

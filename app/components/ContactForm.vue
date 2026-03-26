@@ -80,7 +80,7 @@ select:-webkit-autofill:focus {
     border: 2px solid #1E2D3D;
     border-radius: 7px;
     resize: none;
-    height: 150px;
+    height: 200px;
     padding: 10px;
 }
 
@@ -104,22 +104,19 @@ input:focus, #message-input:focus {
   }
 
 #contact-form {
-    max-width: 370px;
+    max-width: 480px;
     width: 100%;
 }
 
 @media (max-width: 1920px) {
     #contact-form {
-        max-width: 320px;
-        max-height: 400px;
+        max-width: 440px;
     }
     #submit-button {
-        /* width: 100%; */
         font-size: 12px;
     }
     textarea {
         font-size: 13px;
-        max-height: 130px !important;
     }
     input {
         font-size: 13px;
