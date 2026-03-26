@@ -37,32 +37,32 @@
         },
         "social": {
             "linkedin": {
-                "title": "LinkedIn account",
+                "title": "LinkedIn",
                 "url": "https://www.linkedin.com/in/",
                 "user": "merterbak"
             },
             "github": {
-                "title": "Github profile",
+                "title": "GitHub",
                 "url": "https://github.com/",
                 "user": "merterbak"
             },
             "x": {
-                "title": "X account",
+                "title": "X",
                 "url": "https://x.com/",
                 "user": "merterbak"
             },
             "huggingface": {
-                "title": "Hugging Face account",
+                "title": "Hugging Face",
                 "url": "https://huggingface.co/",
                 "user": "merterbak"
             },
             "leetcode": {
-                "title": "LeetCode profile",
+                "title": "LeetCode",
                 "url": "https://leetcode.com/u/",
                 "user": "merterbak"
             },
             "hackerrank": {
-                "title": "HackerRank profile",
+                "title": "HackerRank",
                 "url": "https://www.hackerrank.com/profile/",
                 "user": "merterbak"
             }

@@ -23,6 +23,21 @@
                 </div>
             </div>
 
+            <!-- social profiles -->
+            <div id="social" class="submenu">
+                <div class="title" @click="open('social')">
+                    <img class="arrow" src="/icons/arrow.svg" alt="">
+                    <h3>
+                        find-me-also-in
+                    </h3>
+                </div>
+                <div id="links">
+                    <div v-for="(source, key) in contact.social" :key="key" class="link">
+                        <img :src="'/icons/social/' + key + '.svg'" alt="">
+                        <a :href="source.url + source.user" target="_blank" class="font-fira_retina text-menu-text hover:text-white">{{ source.title }}</a>
+                    </div>
+                </div>
+            </div>
 
         </div>
             
