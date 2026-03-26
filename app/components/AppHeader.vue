@@ -1,7 +1,6 @@
 <template>
     <header id="navbar" class="w-full hidden lg:flex flex-col">
       <nav class="w-full flex justify-between border-bot">
-        <github-corner url="https://github.com/merterbak" />
           <div class="flex">
             <NuxtLink id="nav-logo" to="/">
               {{ config.logo_name }}
@@ -31,7 +30,6 @@
 </template>
 
 <script setup>
-import GithubCorner from './GithubCorner.vue';
 import config from '~/developer.json';
 
 const isActive = (route) => {
