@@ -248,13 +248,18 @@
   padding: 0px 25px;
 }
 
-#right .hljs{color:#85a9ce;background:#011221;line-height:1.5em}#right .hljs-doctag,#right .hljs-keyword,#right .hljs-meta .hljs-keyword,#right .hljs-template-tag,#right .hljs-template-variable,#right .hljs-type,#right .hljs-variable.language_{color:#ff7b72}#right .hljs-title,#right .hljs-title.class_,#right .hljs-title.class_.inherited__,#right .hljs-title.function_{color:#d2a8ff}#right .hljs-attr,#right .hljs-attribute,#right .hljs-literal,#right .hljs-meta,#right .hljs-number,#right .hljs-operator,#right .hljs-selector-attr,#right .hljs-selector-class,#right .hljs-selector-id,#right .hljs-variable{color:#79c0ff}#right .hljs-meta .hljs-string,#right .hljs-regexp,#right .hljs-string{color:#a5d6ff}#right .hljs-built_in,#right .hljs-symbol{color:#ffa657}#right .hljs-code,#right .hljs-comment,#right .hljs-formula{color:#8b949e}#right .hljs-name,#right .hljs-quote,#right .hljs-selector-pseudo,#right .hljs-selector-tag{color:#7ee787}#right .hljs-subst{color:#c9d1d9}#right .hljs-section{color:#1f6feb;font-weight:700}#right .hljs-bullet{color:#f2cc60}#right .hljs-emphasis{color:#c9d1d9;font-style:italic}#right .hljs-strong{color:#c9d1d9;font-weight:700}#right .hljs-addition{color:#aff5b4;background-color:#033a16}#right .hljs-deletion{color:#ffdcd7;background-color:#67060c}
+#right .hljs{color:#85a9ce;background:transparent;line-height:1.5em}#right .hljs-doctag,#right .hljs-keyword,#right .hljs-meta .hljs-keyword,#right .hljs-template-tag,#right .hljs-template-variable,#right .hljs-type,#right .hljs-variable.language_{color:#ff7b72}#right .hljs-title,#right .hljs-title.class_,#right .hljs-title.class_.inherited__,#right .hljs-title.function_{color:#d2a8ff}#right .hljs-attr,#right .hljs-attribute,#right .hljs-literal,#right .hljs-meta,#right .hljs-number,#right .hljs-operator,#right .hljs-selector-attr,#right .hljs-selector-class,#right .hljs-selector-id,#right .hljs-variable{color:#79c0ff}#right .hljs-meta .hljs-string,#right .hljs-regexp,#right .hljs-string{color:#a5d6ff}#right .hljs-built_in,#right .hljs-symbol{color:#ffa657}#right .hljs-code,#right .hljs-comment,#right .hljs-formula{color:#8b949e}#right .hljs-name,#right .hljs-quote,#right .hljs-selector-pseudo,#right .hljs-selector-tag{color:#7ee787}#right .hljs-subst{color:#c9d1d9}#right .hljs-section{color:#1f6feb;font-weight:700}#right .hljs-bullet{color:#f2cc60}#right .hljs-emphasis{color:#c9d1d9;font-style:italic}#right .hljs-strong{color:#c9d1d9;font-weight:700}#right .hljs-addition{color:#aff5b4;background-color:#033a16}#right .hljs-deletion{color:#ffdcd7;background-color:#67060c}
 
 #right pre {
   margin: 0;
   font-family: inherit;
   font-size: 0.75rem;
   line-height: 1.5em;
+  padding: 0;
+}
+
+#right pre code.hljs {
+  padding: 0;
 }
 
 #right .line-numbers span {

@@ -11,7 +11,7 @@
                 <div class="absolute flex right-3 top-3">
                 <img v-for="tech in project.tech" :key="tech" :src="'/icons/techs/filled/' + tech + '.svg'" alt="" class="w-6 h-6 mx-1 hover:opacity-75">
                 </div>
-                <img id="showcase" :src="repoData ? `https://opengraph.githubassets.com/1/${repoOwner}/${repoName}` : hfData ? `https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/${hfOwner}/${hfSpace}.png` : project.img" alt="" class="" @error="onImgError">
+                <img id="showcase" :src="loadedExternalImg || project.img" alt="">
             </div>
 
             <div class="pb-8 pt-6 px-6 border-top">
@@ -101,10 +101,32 @@ const hfData = computed(() => {
     return { likes: data.likes }
 })
 
-function onImgError(e) {
-    if (e.target.src !== project.img) {
-        e.target.src = project.img
+const loadedExternalImg = ref(null)
+
+onMounted(() => {
+    let url = null
+    if (repoData.value) {
+        url = `https://opengraph.githubassets.com/1/${repoOwner}/${repoName}`
+    } else if (hfData.value) {
+        url = `https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/${hfOwner}/${hfSpace}.png`
     }
+    if (!url) {
+        // watch for data to arrive later
+        watch([repoData, hfData], () => {
+            let u = null
+            if (repoData.value) u = `https://opengraph.githubassets.com/1/${repoOwner}/${repoName}`
+            else if (hfData.value) u = `https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/${hfOwner}/${hfSpace}.png`
+            if (u) preloadImg(u)
+        }, { once: true })
+    } else {
+        preloadImg(url)
+    }
+})
+
+function preloadImg(url) {
+    const img = new Image()
+    img.onload = () => { loadedExternalImg.value = url }
+    img.src = url
 }
 </script>
 
