@@ -39,6 +39,15 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/jpeg', href: '/icon.jpg' },
         { rel: 'manifest', href: 'pwa/manifest.json' },
         { rel: 'apple-touch-icon', href: '/icon.jpg' },
+        // Preload GitHub project images
+        { rel: 'preload', as: 'image', href: 'https://opengraph.githubassets.com/1/merterbak/Grok-MCP' },
+        { rel: 'preload', as: 'image', href: 'https://opengraph.githubassets.com/1/merterbak/llm-from-scratch' },
+        { rel: 'preload', as: 'image', href: 'https://opengraph.githubassets.com/1/merterbak/diffusion-from-scratch' },
+        // Preload HuggingFace project images
+        { rel: 'preload', as: 'image', href: 'https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/merterbak/DeepSeek-OCR-Demo.png' },
+        { rel: 'preload', as: 'image', href: 'https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/merterbak/Mistral-OCR.png' },
+        { rel: 'preload', as: 'image', href: 'https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/merterbak/RAG-Llama.png' },
+        { rel: 'preload', as: 'image', href: 'https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/merterbak/gemma-3.png' },
       ],
       script: [
         { src: 'https://www.googletagmanager.com/gtag/js?id=G-FMQYXZ881G', async: true },

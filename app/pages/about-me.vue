@@ -90,7 +90,7 @@
             <span class="text-white">// </span>
             <h3 v-html="config.about.sections[currentSection]?.title" class="text-white px-2"></h3>
             <span class="text-menu-text"> / </span>
-            <h3 v-html="config.about.sections[currentSection]?.info[folder].title" class="text-menu-text pl-2"></h3>
+            <h3 class="text-menu-text pl-2">{{ showingCode ? codeFileName : config.about.sections[currentSection]?.info[folder]?.title }}</h3>
         </div>
         
         <!-- text -->
@@ -106,7 +106,7 @@
                 <div class="line-numbers lg:flex flex-col hidden" style="min-width: 50px; text-align: right; padding-right: 15px; user-select: none;">
                   <span v-for="n in mdLines" :key="n" style="line-height: 1.5em;">{{ n }}</span>
                 </div>
-                <div id="md-text" class="text-container" style="padding-left: 10px; line-height: 1.5em;">
+                <div id="md-text" class="text-container py-10 lg:py-0" style="padding-left: 10px; line-height: 1.5em;">
                   <p v-html="config.about.sections[currentSection]?.info[folder].description"></p>
                 </div>
               </div>
@@ -248,9 +248,9 @@
   padding: 0px 25px;
 }
 
-#right .hljs{color:#85a9ce;background:transparent;line-height:1.5em}#right .hljs-doctag,#right .hljs-keyword,#right .hljs-meta .hljs-keyword,#right .hljs-template-tag,#right .hljs-template-variable,#right .hljs-type,#right .hljs-variable.language_{color:#ff7b72}#right .hljs-title,#right .hljs-title.class_,#right .hljs-title.class_.inherited__,#right .hljs-title.function_{color:#d2a8ff}#right .hljs-attr,#right .hljs-attribute,#right .hljs-literal,#right .hljs-meta,#right .hljs-number,#right .hljs-operator,#right .hljs-selector-attr,#right .hljs-selector-class,#right .hljs-selector-id,#right .hljs-variable{color:#79c0ff}#right .hljs-meta .hljs-string,#right .hljs-regexp,#right .hljs-string{color:#a5d6ff}#right .hljs-built_in,#right .hljs-symbol{color:#ffa657}#right .hljs-code,#right .hljs-comment,#right .hljs-formula{color:#8b949e}#right .hljs-name,#right .hljs-quote,#right .hljs-selector-pseudo,#right .hljs-selector-tag{color:#7ee787}#right .hljs-subst{color:#c9d1d9}#right .hljs-section{color:#1f6feb;font-weight:700}#right .hljs-bullet{color:#f2cc60}#right .hljs-emphasis{color:#c9d1d9;font-style:italic}#right .hljs-strong{color:#c9d1d9;font-weight:700}#right .hljs-addition{color:#aff5b4;background-color:#033a16}#right .hljs-deletion{color:#ffdcd7;background-color:#67060c}
+.hljs{color:#85a9ce;background:transparent;line-height:1.5em}.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-template-tag,.hljs-template-variable,.hljs-type,.hljs-variable.language_{color:#ff7b72}.hljs-title,.hljs-title.class_,.hljs-title.class_.inherited__,.hljs-title.function_{color:#d2a8ff}.hljs-attr,.hljs-attribute,.hljs-literal,.hljs-meta,.hljs-number,.hljs-operator,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-variable{color:#79c0ff}.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#a5d6ff}.hljs-built_in,.hljs-symbol{color:#ffa657}.hljs-code,.hljs-comment,.hljs-formula{color:#8b949e}.hljs-name,.hljs-quote,.hljs-selector-pseudo,.hljs-selector-tag{color:#7ee787}.hljs-subst{color:#c9d1d9}.hljs-section{color:#1f6feb;font-weight:700}.hljs-bullet{color:#f2cc60}.hljs-emphasis{color:#c9d1d9;font-style:italic}.hljs-strong{color:#c9d1d9;font-weight:700}.hljs-addition{color:#aff5b4;background-color:#033a16}.hljs-deletion{color:#ffdcd7;background-color:#67060c}
 
-#right pre {
+#about-me pre {
   margin: 0;
   font-family: inherit;
   font-size: 0.75rem;
@@ -258,7 +258,7 @@
   padding: 0;
 }
 
-#right pre code.hljs {
+#about-me pre code.hljs {
   padding: 0;
 }
 
@@ -270,8 +270,11 @@
 
 <script>
 import DevConfig from '~/developer.json';
-import hljsVuePlugin from "@highlightjs/vue-plugin";
-import 'highlight.js/lib/common';
+let hljsVuePlugin = null
+if (import.meta.client) {
+  hljsVuePlugin = (await import('@highlightjs/vue-plugin')).default
+  await import('highlight.js/lib/common')
+}
 export default {
   data() {
     return {
@@ -413,6 +416,7 @@ def stream_response(prompt, model="gpt-4o"):
       this.selectedFile = fileName
       if (fileName.endsWith('.py') && this.snippets[fileName]) {
         this.showingCode = true
+        this.folder = 'code-snippets'
         this.loadSnippet(fileName)
       } else if (folder) {
         this.showingCode = false
@@ -428,7 +432,7 @@ def stream_response(prompt, model="gpt-4o"):
     },
   },
   components: {
-    highlightjs: hljsVuePlugin.component
+    highlightjs: hljsVuePlugin?.component
   },
   mounted(){
     this.loading = false
