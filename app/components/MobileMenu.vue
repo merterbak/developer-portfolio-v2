@@ -14,22 +14,19 @@
 
     <!-- mobile menu -->
     <div id="menu" class="bg-mobile-menu-blue z-10 hidden">
-      <NuxtLink id="nav-link-mobile" to="/" :class="{ active: isActive('/') }" @click="toggleMobileMenu()">
+      <NuxtLink id="nav-link-mobile" to="/" :class="{ active: isActive('/') }">
         _hello
       </NuxtLink>
 
-      <NuxtLink id="nav-link-mobile" to="/about-me" :class="{ active: isActive('/about-me') }"
-        @click="toggleMobileMenu()">
+      <NuxtLink id="nav-link-mobile" to="/about-me" :class="{ active: isActive('/about-me') }">
         _about-me
       </NuxtLink>
 
-      <NuxtLink id="nav-link-mobile" to="/projects" :class="{ active: isActive('/projects') }"
-        @click="toggleMobileMenu()">
+      <NuxtLink id="nav-link-mobile" to="/projects" :class="{ active: isActive('/projects') }">
         _projects
       </NuxtLink>
 
-      <NuxtLink id="nav-link-mobile" to="/contact-me" :class="{ active: isActive('/contact-me') }"
-        @click="toggleMobileMenu()">
+      <NuxtLink id="nav-link-mobile" to="/contact-me" :class="{ active: isActive('/contact-me') }">
         _contact-me
       </NuxtLink>
     </div>
@@ -38,13 +35,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 import DevConfig from '~/developer.json';
 
 const config = ref(DevConfig);
+const route = useRoute();
 
 const menuOpen = ref(false);
+
+// When route changes, close menu and show the new page
+watch(() => route.path, () => {
+  const menu = document.getElementById('menu');
+  if (menu && !menu.classList.contains('hidden')) {
+    menu.classList.add('hidden');
+  }
+  const page = document.getElementsByTagName('main')[0];
+  if (page) {
+    page.style.display = 'flex';
+  }
+  menuOpen.value = false;
+});
 
 function toggleMobileMenu(){
   menuOpen.value = !menuOpen.value;
@@ -54,20 +65,15 @@ function toggleMobileMenu(){
 
   const page = document.getElementsByTagName('main')[0];
   // Hide / show section
-  if (page.style.display === 'none') {
-    page.style.display = 'flex';
-  } else {
+  if (menuOpen.value) {
     page.style.display = 'none';
+  } else {
+    page.style.display = 'flex';
   }
 };
 
 function goHome(){
-  const menu = document.getElementById('menu');
-  if (!menu.classList.contains('hidden')) {
-    menu.classList.toggle('hidden');
-    document.getElementsByTagName('main')[0].style.display = 'flex';
-    menuOpen.value = !menuOpen.value;
-  }
+  // Menu will be closed by the route watcher
 };
 
 const isActive = (route) => {
