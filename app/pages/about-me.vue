@@ -18,32 +18,21 @@
 
         <!-- folders -->
         <div>
-          <div v-for="(folder, key, index) in config.about.sections[currentSection]?.info" :key="key" class="grid grid-cols-2 items-center my-2 font-fira_regular text-menu-text" @click="focusCurrentFolder(folder)">
-            <div class="flex col-span-2 hover:text-white hover:cursor-pointer">
-              <img id="diple" src="/icons/diple.svg" alt="" :class="{ open: isOpen(folder.title)}">
+          <div v-for="(folder, key, index) in config.about.sections[currentSection]?.info" :key="key" class="grid grid-cols-2 items-center my-2 font-fira_regular text-menu-text">
+            <div class="flex col-span-2 hover:text-white hover:cursor-pointer" @click="toggleFolder(folder.title)">
+              <img id="diple" src="/icons/diple.svg" alt="" :class="{ open: openFolders.includes(folder.title) }">
               <img :src="'/icons/folder' + (index+1) + '.svg'" alt="" class="mr-3">
-              <p :id="folder.title" v-html="key" :class="{ active: isActive(folder.title)}"></p>
+              <p :id="folder.title" v-html="key"></p>
             </div>
-            <div v-if="folder.files !== undefined" class="col-span-2">
-              <div v-for="(file, key) in folder.files" :key="key" class="hover:text-white hover:cursor-pointer flex my-2">
-                <img src="/icons/markdown.svg" alt="" class="ml-8 mr-3"/>
-                <p >{{ key }}</p>
-              </div> 
+            <div v-if="folder.files !== undefined && openFolders.includes(folder.title)" class="col-span-2">
+              <div v-for="(file, fkey) in folder.files" :key="fkey" class="hover:text-white hover:cursor-pointer flex my-2" @click.stop="onFileClick(fkey, file, folder)">
+                <img :src="fkey.endsWith('.py') ? '/icons/python.svg' : '/icons/markdown.svg'" alt="" class="ml-8 mr-3 w-4 h-4"/>
+                <p :class="{ active: selectedFile === fkey }">{{ fkey }}</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- contact -->
-        <div id="section-content-title-contact" class="flex items-center min-w-full border-top">
-          <img id="section-arrow-menu" src="/icons/arrow.svg" alt="" class="section-arrow mx-3 open">
-          <p v-html="config.contacts.direct.title" class="font-fira_regular text-white text-sm"></p>
-        </div>
-        <div id="contact-sources" class="hidden lg:flex lg:flex-col my-2">
-          <div v-for="(source, key) in config.contacts.direct.sources" :key="key" class="flex items-center mb-2">
-            <img :src="'/icons/' + key + '.svg'" alt="" class="mx-4">
-            <a v-html="source" href="/" class="font-fira_retina text-menu-text hover:text-white"></a>
-          </div>
-        </div>
 
       </div>
 
@@ -59,38 +48,24 @@
           </div>
 
           <!-- folders -->
-          <div :id="'folders-' + section.title" class="hidden"> <!-- <div :id="'folders-' + section.title" :class="currentSection == section.title ? 'block' : 'hidden'"> -->
-            <div v-for="(folder, key, index) in config.about.sections[section.title]?.info" :key="key" class="grid grid-cols-2 items-center my-2 font-fira_regular text-menu-text hover:text-white hover:cursor-pointer" @click="focusCurrentFolder(folder)">
-              <div class="flex col-span-2">
-                <img id="diple" src="/icons/diple.svg">
+          <div :id="'folders-' + section.title" class="hidden">
+            <div v-for="(folder, key, index) in config.about.sections[section.title]?.info" :key="key" class="grid grid-cols-2 items-center my-2 font-fira_regular text-menu-text">
+              <div class="flex col-span-2 hover:text-white hover:cursor-pointer" @click="toggleFolder(folder.title)">
+                <img id="diple" src="/icons/diple.svg" :class="{ open: openFolders.includes(folder.title) }">
                 <img :src="'icons/folder' + (index+1) + '.svg'" alt="" class="mr-3">
-                <p :id="folder.title" v-html="key" :class="{ active: isActive(folder.title)}"></p>
+                <p :id="folder.title" v-html="key"></p>
               </div>
-              <div v-if="folder.files !== undefined" class="col-span-2">
-                <div v-for="(file, key) in folder.files" :key="key" class="hover:text-white hover:cursor-pointer flex my-2">
-                  <img src="/icons/markdown.svg" alt="" class="ml-8 mr-3"/>
-                  <p >{{ key }}</p>
+              <div v-if="folder.files !== undefined && openFolders.includes(folder.title)" class="col-span-2">
+                <div v-for="(file, fkey) in folder.files" :key="fkey" class="hover:text-white hover:cursor-pointer flex my-2" @click.stop="onFileClick(fkey, file, folder)">
+                  <img :src="fkey.endsWith('.py') ? '/icons/python.svg' : '/icons/markdown.svg'" alt="" class="ml-8 mr-3 w-4 h-4"/>
+                  <p :class="{ active: selectedFile === fkey }">{{ fkey }}</p>
                 </div>
-                
               </div>
             </div>
           </div>
           
         </div>
 
-        <!-- section content title -->
-        <div id="section-content-title" class="flex items-center min-w-full" @click="showContacts()">
-          <img src="/icons/arrow.svg" alt="" id="section-arrow" class="section-arrow">
-          <p v-html="config.contacts.direct.title" class="font-fira_regular text-white text-sm"></p>
-        </div>
-
-        <!-- section content folders -->
-        <div id="contacts" class="hidden">
-          <div v-for="(source, key) in config.contacts.direct.sources" :key="key" class="flex items-center my-2">
-            <img :src="'/icons/' + key + '.svg'" alt="">
-            <a v-html="source" href="/" class="font-fira_retina text-menu-text hover:text-white ml-4"></a>
-          </div>
-        </div>
 
       </div>
 
@@ -122,7 +97,19 @@
         <div id="commented-text" class="flex h-full w-full lg:border-right overflow-hidden">
 
           <div class="w-full h-full ml-5 mr-10 lg:my-5 overflow-scroll">
-              <CommentedText :text="config.about.sections[currentSection]?.info[folder].description" />
+              <!-- mobile gist view -->
+              <div v-if="showingCode && codeLines" class="lg:hidden font-fira_retina text-menu-text" style="padding-left: 10px; overflow-x: auto;">
+                <highlightjs :code="codeContent" :language="codeLang" />
+              </div>
+              <!-- description text -->
+              <div :class="{ 'hidden lg:flex': showingCode && codeLines }" class="flex font-fira_retina text-menu-text">
+                <div class="line-numbers lg:flex flex-col hidden" style="min-width: 50px; text-align: right; padding-right: 15px; user-select: none;">
+                  <span v-for="n in mdLines" :key="n" style="line-height: 1.5em;">{{ n }}</span>
+                </div>
+                <div id="md-text" class="text-container" style="padding-left: 10px; line-height: 1.5em;">
+                  <p v-html="config.about.sections[currentSection]?.info[folder].description"></p>
+                </div>
+              </div>
           </div>
           
           <!-- scroll bar -->
@@ -133,39 +120,39 @@
         </div>
 
       </div>
-      
+
     </div>
 
-    <div id="right" class="max-w-full flex flex-col">
-        
+    <div id="right" class="max-w-full hidden lg:flex flex-col">
+
       <!-- windows tab -->
       <div class="tab-height w-full h-full hidden lg:flex border-bot items-center">
-
-      </div>
-
-      <!-- windows tab mobile -->
-      <div class="tab-height w-full h-full flex-none lg:hidden items-center">
-
-      </div>
-
-        <div id="gists-content" class="flex">
-        
-          <div id="gists" class="flex flex-col lg:px-6 lg:py-4 w-full overflow-hidden">
-            <!-- title -->
-            <h3 class="text-white lg:text-menu-text mb-4 text-sm">// Code snippet showcase:</h3>
-
-            <div class="flex flex-col overflow-scroll">
-              <!-- snippets -->
-              <GistSnippet data-aos="fade-down" v-for="(gist, key) in config.gists" :key="key" :id="gist" />
-            </div>
-          </div>
-
-          <!-- scroll bar -->
-          <div id="scroll-bar" class="h-full border-left hidden lg:flex justify-center py-1">
-            <div id="scroll"></div>
-          </div>
+        <div v-if="codeFileName" class="flex items-center border-right h-full">
+          <p class="font-fira_regular text-menu-text text-sm px-3">{{ codeFileName }}</p>
+          <img src="/icons/close.svg" alt="" class="mx-3">
         </div>
       </div>
+
+      <div id="gists-content" class="flex">
+        <div class="w-full h-full lg:my-5 overflow-scroll">
+          <div v-if="codeLines" class="code-container flex font-fira_retina text-menu-text">
+            <div class="line-numbers lg:flex flex-col hidden" style="min-width: 50px; text-align: right; padding-right: 15px; user-select: none;">
+              <span v-for="n in codeLines.length" :key="n" style="line-height: 1.5em;">{{ n }}</span>
+            </div>
+            <div class="text-container" style="padding-left: 10px; flex: 1; overflow-x: auto;">
+              <highlightjs :code="codeContent" :language="codeLang" />
+            </div>
+          </div>
+          <p v-else class="font-fira_retina text-menu-text text-sm lg:px-6 lg:py-4">Loading gist...</p>
+        </div>
+
+        <!-- scroll bar -->
+        <div id="scroll-bar" class="h-full border-left hidden lg:flex justify-center py-1">
+          <div id="scroll"></div>
+        </div>
+      </div>
+    </div>
+
     </div>
   </main>
 </template>
@@ -261,16 +248,109 @@
   padding: 0px 25px;
 }
 
+#right .hljs{color:#85a9ce;background:#011221;line-height:1.5em}#right .hljs-doctag,#right .hljs-keyword,#right .hljs-meta .hljs-keyword,#right .hljs-template-tag,#right .hljs-template-variable,#right .hljs-type,#right .hljs-variable.language_{color:#ff7b72}#right .hljs-title,#right .hljs-title.class_,#right .hljs-title.class_.inherited__,#right .hljs-title.function_{color:#d2a8ff}#right .hljs-attr,#right .hljs-attribute,#right .hljs-literal,#right .hljs-meta,#right .hljs-number,#right .hljs-operator,#right .hljs-selector-attr,#right .hljs-selector-class,#right .hljs-selector-id,#right .hljs-variable{color:#79c0ff}#right .hljs-meta .hljs-string,#right .hljs-regexp,#right .hljs-string{color:#a5d6ff}#right .hljs-built_in,#right .hljs-symbol{color:#ffa657}#right .hljs-code,#right .hljs-comment,#right .hljs-formula{color:#8b949e}#right .hljs-name,#right .hljs-quote,#right .hljs-selector-pseudo,#right .hljs-selector-tag{color:#7ee787}#right .hljs-subst{color:#c9d1d9}#right .hljs-section{color:#1f6feb;font-weight:700}#right .hljs-bullet{color:#f2cc60}#right .hljs-emphasis{color:#c9d1d9;font-style:italic}#right .hljs-strong{color:#c9d1d9;font-weight:700}#right .hljs-addition{color:#aff5b4;background-color:#033a16}#right .hljs-deletion{color:#ffdcd7;background-color:#67060c}
+
+#right pre {
+  margin: 0;
+  font-family: inherit;
+  font-size: 0.75rem;
+  line-height: 1.5em;
+}
+
+#right .line-numbers span {
+  font-size: 0.75rem;
+}
+
 </style>
 
 <script>
 import DevConfig from '~/developer.json';
+import hljsVuePlugin from "@highlightjs/vue-plugin";
+import 'highlight.js/lib/common';
 export default {
   data() {
     return {
       currentSection: 'personal-info',
       folder: 'bio',
       loading: true,
+      codeContent: null,
+      codeLines: null,
+      codeFileName: null,
+      codeLang: 'python',
+      selectedFile: 'bio.md',
+      openFolders: ['bio', 'interests', 'education', 'code-snippets'],
+      mdLines: 3,
+      showingCode: false,
+      snippets: {
+        'attention.py': `import torch
+import torch.nn as nn
+import math
+
+class MultiHeadAttention(nn.Module):
+    def __init__(self, d_model, n_heads):
+        super().__init__()
+        self.d_model = d_model
+        self.n_heads = n_heads
+        self.d_k = d_model // n_heads
+
+        self.W_q = nn.Linear(d_model, d_model)
+        self.W_k = nn.Linear(d_model, d_model)
+        self.W_v = nn.Linear(d_model, d_model)
+        self.W_o = nn.Linear(d_model, d_model)
+
+    def scaled_dot_product(self, Q, K, V, mask=None):
+        scores = torch.matmul(Q, K.transpose(-2, -1))
+        scores = scores / math.sqrt(self.d_k)
+        if mask is not None:
+            scores = scores.masked_fill(mask == 0, -1e9)
+        attn = torch.softmax(scores, dim=-1)
+        return torch.matmul(attn, V)
+
+    def forward(self, x, mask=None):
+        batch_size = x.size(0)
+
+        Q = self.W_q(x).view(batch_size, -1, self.n_heads, self.d_k).transpose(1, 2)
+        K = self.W_k(x).view(batch_size, -1, self.n_heads, self.d_k).transpose(1, 2)
+        V = self.W_v(x).view(batch_size, -1, self.n_heads, self.d_k).transpose(1, 2)
+
+        out = self.scaled_dot_product(Q, K, V, mask)
+        out = out.transpose(1, 2).contiguous().view(batch_size, -1, self.d_model)
+        return self.W_o(out)`,
+        'api.py': `from openai import OpenAI
+
+client = OpenAI()
+
+def chat(prompt, model="gpt-4o", temperature=0.7):
+    response = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=temperature,
+    )
+    return response.choices[0].message.content
+
+def generate_embeddings(texts, model="text-embedding-3-small"):
+    response = client.embeddings.create(
+        model=model,
+        input=texts,
+    )
+    return [item.embedding for item in response.data]
+
+def stream_response(prompt, model="gpt-4o"):
+    stream = client.chat.completions.create(
+        model=model,
+        messages=[
+            {"role": "user", "content": prompt}
+        ],
+        stream=True,
+    )
+    for chunk in stream:
+        content = chunk.choices[0].delta.content
+        if content:
+            print(content, end="", flush=True)`
+      },
     }
   },
   /**
@@ -282,7 +362,6 @@ export default {
     }
   },
   computed: {
-    // Set active class to current page link
     isActive() {
       return folder => this.folder === folder;
     },
@@ -303,24 +382,59 @@ export default {
     },
     focusCurrentFolder(folder) {
       this.folder = folder.title
-      // handle if folder belongs to the current section. It happens when you click on a folder from a different section in mobile view.
       this.currentSection = this.config.about.sections[this.currentSection].info[folder.title] ? this.currentSection : Object.keys(this.config.about.sections).find(section => this.config.about.sections[section].info[folder.title])
     },
-    /**
-     * TODO: Hay que crear un método para que cuando se haga click en un folder, se muestren los archivos que contiene. Y si se hace click en un archivo, se muestre el contenido del archivo.
-     * TODO:  Además de girar el icono del diple.
-     */
-    toggleFiles() {
-      document.getElementById('file-' + this.folder).classList.toggle('hidden')
+    toggleFolder(title) {
+      const idx = this.openFolders.indexOf(title)
+      if (idx >= 0) {
+        this.openFolders.splice(idx, 1)
+      } else {
+        this.openFolders.push(title)
+      }
     },
     /* Mobile */
     showContacts() {
       document.getElementById('contacts').classList.toggle('hidden')
       document.getElementById('section-arrow').classList.toggle('rotate-90'); // rotate arrow
     },
+    loadSnippet(fileName) {
+      const code = this.snippets[fileName]
+      if (!code) return
+      this.codeFileName = fileName
+      this.codeContent = code
+      this.codeLines = code.split('\n')
+    },
+    onFileClick(fileName, fileValue, folder) {
+      this.selectedFile = fileName
+      if (fileName.endsWith('.py') && this.snippets[fileName]) {
+        this.showingCode = true
+        this.loadSnippet(fileName)
+      } else if (folder) {
+        this.showingCode = false
+        this.folder = folder.title
+        this.$nextTick(() => this.updateMdLines())
+      }
+    },
+    updateMdLines() {
+      const el = this.$el.querySelector('#md-text')
+      if (!el) return
+      const lineHeight = parseFloat(getComputedStyle(el).lineHeight)
+      this.mdLines = Math.max(Math.ceil(el.offsetHeight / lineHeight), 3)
+    },
+  },
+  components: {
+    highlightjs: hljsVuePlugin.component
   },
   mounted(){
     this.loading = false
+    this.loadSnippet('attention.py')
+    this.$nextTick(() => {
+      this.updateMdLines()
+      window.addEventListener('resize', this.updateMdLines)
+    })
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.updateMdLines)
   }
 }
 </script>

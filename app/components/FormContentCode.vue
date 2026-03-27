@@ -125,13 +125,12 @@ export default {
     beforeDestroy() {
         window.removeEventListener("resize", this.updateLines);
         window.removeEventListener("click", this.updateLines);
-        window.addEventListener("input", this.updateLines);
+        window.removeEventListener("input", this.updateLines);
     },
     methods: {
         updateLines() {
             const textContainer = this.$el.querySelector(".text-container");
             const style = window.getComputedStyle(textContainer);
-            const fontSize = parseInt(style.fontSize);
             const lineHeight = parseInt(style.lineHeight);
             const maxHeight = textContainer.offsetHeight;
             this.lines = Math.ceil(maxHeight / lineHeight);
@@ -160,11 +159,19 @@ export default {
 
 .line-numbers {
     text-align: right;
+    line-height: 1.5em;
 }
 
 .text-container {
     width: 100%;
     padding-left: 0px;
-    word-wrap: break-word;
+    line-height: 1.5em;
+    overflow: hidden;
+}
+
+.text-container span#name-value,
+.text-container span#email-value,
+.text-container span#message-value {
+    word-break: break-all;
 }
 </style>

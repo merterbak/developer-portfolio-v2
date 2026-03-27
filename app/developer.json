@@ -10,11 +10,17 @@
                 "info": { 
                     "bio": {
                         "title": "bio",
-                        "description": "<br>"
+                        "description": "I'm a developer primarily focused on AI, with a strong curiosity for how things work beneath the surface and how they can improve over time. I regularly follow new research and read papers to stay up to date, and I build projects to turn what I learn into practice. My goal is to grow as both an engineer and a researcher, and to create work that has a meaningful impact on people.",
+                        "files": {
+                            "bio.md": "bio"
+                        }
                     },
                     "interests": {
                         "title": "interests",
-                        "description": "<br>"
+                        "description": "<br>",
+                        "files": {
+                            "interests.md": "interests"
+                        }
                     },
                     "education": {
                         "title": "education",
@@ -22,6 +28,14 @@
                         "files": {
                             "Ozel Ege Highschool": "",
                             "Bahcesehir University": "Bahcesehir University"
+                        }
+                    },
+                    "code-snippets": {
+                        "title": "code-snippets",
+                        "description": "<br>",
+                        "files": {
+                            "attention.py": "",
+                            "api.py": ""
                         }
                     }
                 }
@@ -88,10 +102,6 @@
                 
             }
         }
-    },
-    "gists": {
-        "1": "9bb2bf0f696499ef13541de07640cefe ",
-        "2": "8a231aa1a1439513093305766377eb08"
     },
     "projects": {
         "1": {
