@@ -40,6 +40,10 @@ export default defineNuxtConfig({
         { rel: 'manifest', href: 'pwa/manifest.json' },
         { rel: 'apple-touch-icon', href: '/icon.jpg' },
       ],
+      script: [
+        { src: 'https://www.googletagmanager.com/gtag/js?id=G-FMQYXZ881G', async: true },
+        { innerHTML: "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-FMQYXZ881G');" },
+      ],
     },
   },
 
