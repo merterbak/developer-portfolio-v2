@@ -79,8 +79,8 @@
         
         <!-- windows tab desktop -->
         <div class="tab-height w-full hidden lg:flex border-bot items-center">
-          <div class="flex items-center border-right h-full">
-            <p v-html="config.about.sections[currentSection]?.title" class="font-fira_regular text-menu-text text-sm px-3"></p>
+          <div v-if="lastMdFile" class="flex items-center border-right h-full">
+            <p class="font-fira_regular text-menu-text text-sm px-3">{{ lastMdFile }}</p>
             <img src="/icons/close.svg" alt="" class="mx-3">
           </div>
         </div>
@@ -102,7 +102,7 @@
                 <highlightjs :code="codeContent" :language="codeLang" />
               </div>
               <!-- description text -->
-              <div :class="{ 'hidden lg:flex': showingCode && codeLines }" class="flex font-fira_retina text-menu-text">
+              <div :class="{ 'hidden': showingCode && codeLines }" class="flex font-fira_retina text-menu-text lg:!flex">
                 <div class="line-numbers lg:flex flex-col hidden" style="min-width: 50px; text-align: right; padding-right: 15px; user-select: none;">
                   <span v-for="n in mdLines" :key="n" style="line-height: 1.5em;">{{ n }}</span>
                 </div>
@@ -286,6 +286,7 @@ export default {
       codeFileName: null,
       codeLang: 'python',
       selectedFile: 'bio.md',
+      lastMdFile: 'bio.md',
       openFolders: ['bio', 'interests', 'education', 'code-snippets'],
       mdLines: 3,
       showingCode: false,
@@ -416,10 +417,10 @@ def stream_response(prompt, model="gpt-4o"):
       this.selectedFile = fileName
       if (fileName.endsWith('.py') && this.snippets[fileName]) {
         this.showingCode = true
-        this.folder = 'code-snippets'
         this.loadSnippet(fileName)
       } else if (folder) {
         this.showingCode = false
+        this.lastMdFile = fileName
         this.folder = folder.title
         this.$nextTick(() => this.updateMdLines())
       }
