@@ -15,7 +15,7 @@
 		  </span>
 		</div>
   
-		<div id="info">
+		<div id="info" data-nosnippet>
 		  <span class="action">
 			// complete the game to continue
 		  </span>
