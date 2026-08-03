@@ -145,7 +145,7 @@ export default {
 }
 
 .tag-name {
-    color: #66f7ff;
+    color: #d0d0d6;
 }
 
 .arrow {

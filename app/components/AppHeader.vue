@@ -72,7 +72,7 @@ export default {
 }
 
 #nav-link.router-link-active, #nav-link-contact.router-link-active {
-  border-bottom: 2px solid #fcee0a;
+  border-bottom: 2px solid #ff8c42;
   color: white;
 }
 

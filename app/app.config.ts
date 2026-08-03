@@ -10,7 +10,7 @@ export default defineAppConfig({
     theme: {
       dark: true,
       colors: {
-        primary: '#fcee0a'
+        primary: '#ff8c42'
       }
     }
   })

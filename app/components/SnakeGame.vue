@@ -230,7 +230,7 @@ export default {
           let snakeCell = this.snake.find(snakeCell => snakeCell.x === j && snakeCell.y === i);
 
           if (snakeCell) {
-            cell.style.backgroundColor = "#fcee0a";
+            cell.style.backgroundColor = "#b4b4be";
             cell.style.opacity = 1 - (this.snake.indexOf(snakeCell) / this.snake.length);
             cell.classList.add("green");
 
@@ -258,9 +258,9 @@ export default {
 
           /* Render food */
           if (j === this.food.x && i === this.food.y && !snakeCell) {
-            cell.style.backgroundColor = "#fcee0a";
+            cell.style.backgroundColor = "#ff8c42";
             cell.style.borderRadius = "50%";
-            cell.style.boxShadow = "0 0 10px #fcee0a";
+            cell.style.boxShadow = "0 0 7px rgba(255, 140, 66, .75)";
           }
 
           gameScreen.appendChild(cell);
@@ -350,11 +350,11 @@ export default {
 #console {
   width: 530px;
   height: 475px;
-  border: 1px solid black;
+  border: 1px solid #3a3a42;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, rgba(0, 240, 255, 1), rgba(252, 238, 10, 0.16));
+  background: linear-gradient(to bottom, #1c1c21, #141417);
   border-radius: 10px;
   padding: 30px;
   position: relative;
@@ -374,9 +374,9 @@ export default {
   padding-inline: 16px;
   padding-block: 8px;
   border-radius: 10px;
-  border: 1px solid black;
-  background-color: #fcee0a;
-  color: black;
+  border: 1px solid #3a3a42;
+  background-color: #ff8c42;
+  color: #0b0b0d;
   cursor: pointer;
   position: absolute;
   bottom: 20%;
@@ -386,7 +386,7 @@ export default {
 }
 
 #start-button:hover {
-  background-color: rgb(102, 247, 255);
+  background-color: #fff45c;
 }
 
 #console-menu {
@@ -405,7 +405,7 @@ export default {
 
 #console-button:hover {
   background-color: #0b0b0dd8;
-  box-shadow: #fcee0a 0 0 10px;
+  box-shadow: 0 0 8px rgba(255, 140, 66, .4);
 }
 
 #instructions {
@@ -415,9 +415,9 @@ export default {
 }
 
 .food {
-  background-color: #fcee0a;
+  background-color: #ff8c42;
   border-radius: 50%;
-  box-shadow: 0 0 10px #fcee0a;
+  box-shadow: 0 0 6px rgba(255, 140, 66, .55);
   width: 8px;
   height: 8px;
   opacity: 0.3;
@@ -427,7 +427,7 @@ export default {
 #congrats {
   position: absolute;
   bottom: 12%;
-  color: #fcee0a;
+  color: #ff8c42;
   width: 240px;
 }
 
@@ -500,7 +500,7 @@ export default {
   #congrats {
     position: absolute;
     bottom: 10%;
-    color: #fcee0a;
+    color: #ff8c42;
     width: 192px;
   }
 

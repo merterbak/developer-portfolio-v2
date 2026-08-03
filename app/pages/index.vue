@@ -136,7 +136,7 @@
   #hello .head h2, #hello .head .diple {
 	font-size: 32px;
 	line-height: 1;
-	color: #00f0ff;
+	color: #9a9aa4;
 	font-family: 'Fira Code Retina';
   }
   
@@ -165,11 +165,11 @@
   }
   
   .code .identifier {
-	color: #00f0ff;
+	color: #9a9aa4;
   }
   
   .code .variable-name {
-	color: #fcee0a;
+	color: #ff8c42;
   }
   
   .code .operator {
@@ -177,7 +177,7 @@
   }
   
   .code .string {
-	color: #66f7ff;
+	color: #d0d0d6;
 	text-decoration-line: underline;
 	text-underline-offset: 4px;
   }
@@ -199,7 +199,7 @@
 	border-radius: 0% 0% 50% 50%;
 	rotate: 10deg;
 	filter: blur(70px);
-	background: radial-gradient(circle at 50% 50%,rgba(0, 240, 255, 1), rgba(252, 238, 10, 0));
+	background: radial-gradient(circle at 50% 50%,rgba(255, 140, 66, 0.85), rgba(255, 140, 66, 0));
 	opacity: 0.5;
 	z-index: 10;
   }
@@ -212,7 +212,7 @@
 	height: 300px;
 	border-radius: 0% 50% 0% 50%;
 	filter: blur(70px);
-	background: radial-gradient(circle at 50% 50%,rgba(252, 238, 10, 1), rgba(252, 238, 10, 0));
+	background: radial-gradient(circle at 50% 50%,rgba(255, 140, 66, 0.85), rgba(255, 140, 66, 0));
 	opacity: 0.5;
 	z-index: 10;
   }
@@ -260,7 +260,7 @@
 	}
 	#hello .head h2, #hello .head .diple {
 	  font-size: 20px;
-	  color: #fcee0a;
+	  color: #ff8c42;
 	}
 	#info .action {
 	  display: none;

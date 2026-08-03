@@ -86,7 +86,7 @@ code.hljs{
 }
 
 #username:hover {
-    color: #00f0ff;
+    color: #9a9aa4;
 }
 
 /* #comment {
