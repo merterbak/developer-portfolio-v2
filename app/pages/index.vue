@@ -120,14 +120,14 @@
   #hello .head span {
 	font-size: 18px;
 	line-height: 1;
-	color: #E5E9F0;
+	color: #f0f0f0;
 	font-family: 'Fira Code Retina';
   }
   
   #hello .head h1 {
 	font-size: 58px;
 	line-height: 1;
-	color: #E5E9F0;
+	color: #f0f0f0;
 	font-family: 'Fira Code Regular';
 	padding-top: 1rem;
 	padding-bottom: 1rem;
@@ -136,7 +136,7 @@
   #hello .head h2, #hello .head .diple {
 	font-size: 32px;
 	line-height: 1;
-	color: #4D5BCE;
+	color: #00f0ff;
 	font-family: 'Fira Code Retina';
   }
   
@@ -154,22 +154,22 @@
   #info > span {
 	font-size: 14px;
 	line-height: 1;
-	color: #8da9c6;
+	color: #8a8a94;
 	font-family: 'Fira Code Retina';
 	padding-bottom: 1rem;
   }
   
   .code {
 	font-family: 'Fira Code Medium';
-	color: #E5E9F0;
+	color: #f0f0f0;
   }
   
   .code .identifier {
-	color: #6172ff;
+	color: #00f0ff;
   }
   
   .code .variable-name {
-	color: #43D9AD;
+	color: #fcee0a;
   }
   
   .code .operator {
@@ -177,7 +177,7 @@
   }
   
   .code .string {
-	color: #E99287;
+	color: #66f7ff;
 	text-decoration-line: underline;
 	text-underline-offset: 4px;
   }
@@ -199,7 +199,7 @@
 	border-radius: 0% 0% 50% 50%;
 	rotate: 10deg;
 	filter: blur(70px);
-	background: radial-gradient(circle at 50% 50%,rgba(77, 91, 206, 1), rgba(76, 0, 255, 0));
+	background: radial-gradient(circle at 50% 50%,rgba(0, 240, 255, 1), rgba(252, 238, 10, 0));
 	opacity: 0.5;
 	z-index: 10;
   }
@@ -212,7 +212,7 @@
 	height: 300px;
 	border-radius: 0% 50% 0% 50%;
 	filter: blur(70px);
-	background: radial-gradient(circle at 50% 50%,rgba(67, 217, 173, 1), rgba(76, 0, 255, 0));
+	background: radial-gradient(circle at 50% 50%,rgba(252, 238, 10, 1), rgba(252, 238, 10, 0));
 	opacity: 0.5;
 	z-index: 10;
   }
@@ -260,7 +260,7 @@
 	}
 	#hello .head h2, #hello .head .diple {
 	  font-size: 20px;
-	  color: #43D9AD;
+	  color: #fcee0a;
 	}
 	#info .action {
 	  display: none;

@@ -196,7 +196,7 @@ export default {
     .submenu .title {
         display: flex;
         align-items: center;
-        border-bottom: 1px solid #1E2D3D;
+        border-bottom: 1px solid #2a2a30;
         padding: 0px 25px;
         height: 35px;
         padding: 0px 25px;

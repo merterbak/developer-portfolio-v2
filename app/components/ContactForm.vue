@@ -55,8 +55,8 @@ form {
     @apply font-fira_retina text-menu-text
 }
 input {
-    background-color: #011221;
-    border: 2px solid #1E2D3D;
+    background-color: #141417;
+    border: 2px solid #2a2a30;
     border-radius: 7px;
     
 }
@@ -72,12 +72,12 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
   -webkit-text-fill-color: rgb(190, 190, 190);
   transition: background-color 5000s ease-in-out 0s;
-  border: 2px solid #607b96;
+  border: 2px solid #8a8a94;
 }
 
 #message-input {
-    background-color: #011221;
-    border: 2px solid #1E2D3D;
+    background-color: #141417;
+    border: 2px solid #2a2a30;
     border-radius: 7px;
     resize: none;
     height: 200px;
@@ -86,21 +86,21 @@ select:-webkit-autofill:focus {
 
 #submit-button {
     @apply font-fira_retina text-white text-sm;
-    background-color: #1E2D3D;
+    background-color: #2a2a30;
     border-radius: 7px;
     margin-top: 20px;
     cursor: pointer;
 }
 
 #submit-button:hover {
-    background-color: #263B50;
+    background-color: #3a3a42;
 }
 
 input:focus, #message-input:focus {
     outline: none;
     transition: none;
-    border: 2px solid #607b96;
-    box-shadow: #607b9669 0px 0px 0px 2px;
+    border: 2px solid #8a8a94;
+    box-shadow: #8a8a9469 0px 0px 0px 2px;
   }
 
 #contact-form {

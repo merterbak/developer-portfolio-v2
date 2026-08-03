@@ -230,7 +230,7 @@ export default {
           let snakeCell = this.snake.find(snakeCell => snakeCell.x === j && snakeCell.y === i);
 
           if (snakeCell) {
-            cell.style.backgroundColor = "#43D9AD";
+            cell.style.backgroundColor = "#fcee0a";
             cell.style.opacity = 1 - (this.snake.indexOf(snakeCell) / this.snake.length);
             cell.classList.add("green");
 
@@ -258,9 +258,9 @@ export default {
 
           /* Render food */
           if (j === this.food.x && i === this.food.y && !snakeCell) {
-            cell.style.backgroundColor = "#43D9AD";
+            cell.style.backgroundColor = "#fcee0a";
             cell.style.borderRadius = "50%";
-            cell.style.boxShadow = "0 0 10px #43D9AD";
+            cell.style.boxShadow = "0 0 10px #fcee0a";
           }
 
           gameScreen.appendChild(cell);
@@ -354,7 +354,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(to bottom, rgba(35, 123, 109, 1), rgba(67, 217, 173, 0.13));
+  background: linear-gradient(to bottom, rgba(0, 240, 255, 1), rgba(252, 238, 10, 0.16));
   border-radius: 10px;
   padding: 30px;
   position: relative;
@@ -364,7 +364,7 @@ export default {
   width: 240px;
   height: 400px;
   border-radius: 10px;
-  background-color: rgba(1, 22, 39, 0.84);
+  background-color: rgba(11, 11, 13, 0.92);
   display: flex;
   flex-wrap: wrap;
   box-shadow: inset 0 0 10px #00000071;
@@ -375,7 +375,7 @@ export default {
   padding-block: 8px;
   border-radius: 10px;
   border: 1px solid black;
-  background-color: #FEA55F;
+  background-color: #fcee0a;
   color: black;
   cursor: pointer;
   position: absolute;
@@ -386,7 +386,7 @@ export default {
 }
 
 #start-button:hover {
-  background-color: rgb(255, 178, 119);
+  background-color: rgb(102, 247, 255);
 }
 
 #console-menu {
@@ -394,7 +394,7 @@ export default {
 }
 
 #console-button {
-  background-color: #010C15;
+  background-color: #0b0b0d;
   border-radius: 10px;
   display: flex;
   justify-content: center;
@@ -404,20 +404,20 @@ export default {
 }
 
 #console-button:hover {
-  background-color: #010c15d8;
-  box-shadow: #43D9AD 0 0 10px;
+  background-color: #0b0b0dd8;
+  box-shadow: #fcee0a 0 0 10px;
 }
 
 #instructions {
-  background-color: rgba(1, 20, 35, 0.19);
+  background-color: rgba(11, 11, 13, 0.45);
   border-radius: 7px;
   padding: 10px;
 }
 
 .food {
-  background-color: #43D9AD;
+  background-color: #fcee0a;
   border-radius: 50%;
-  box-shadow: 0 0 10px #43D9AD;
+  box-shadow: 0 0 10px #fcee0a;
   width: 8px;
   height: 8px;
   opacity: 0.3;
@@ -427,7 +427,7 @@ export default {
 #congrats {
   position: absolute;
   bottom: 12%;
-  color: #43D9AD;
+  color: #fcee0a;
   width: 240px;
 }
 
@@ -500,7 +500,7 @@ export default {
   #congrats {
     position: absolute;
     bottom: 10%;
-    color: #43D9AD;
+    color: #fcee0a;
     width: 192px;
   }
 

@@ -145,11 +145,11 @@ export default {
 }
 
 .tag-name {
-    color: #819bff;
+    color: #66f7ff;
 }
 
 .arrow {
-    color: #F8F8F8;
+    color: #f0f0f0;
 }
 
 .code-container {

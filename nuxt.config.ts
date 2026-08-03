@@ -33,7 +33,7 @@ export default defineNuxtConfig({
         { property: 'og:description', content: "Hi there, I'm Mert Erbak" },
         { property: 'og:image', content: 'demo-share.jpg' },
         { property: 'og:url', content: 'https://merterbak.com/' },
-        { name: 'theme-color', content: '#010C15' },
+        { name: 'theme-color', content: '#0b0b0d' },
       ],
       link: [
         { rel: 'icon', type: 'image/jpeg', href: '/icon.jpg' },

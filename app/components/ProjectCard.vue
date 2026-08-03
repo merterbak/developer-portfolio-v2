@@ -137,8 +137,8 @@ function preloadImg(url) {
 }
 
 #project-card {
-  border: 1px solid #1E2D3D;
-  background-color: #011221;
+  border: 1px solid #2a2a30;
+  background-color: #141417;
   border-radius: 15px;
   max-width: 400px;
 }

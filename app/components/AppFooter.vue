@@ -59,11 +59,11 @@ footer {
 }
 
 footer a:hover {
-    background-color: #1e2d3d74;
+    background-color: #2a2a3074;
 }
 
 #social-icons > a {
-    border-right: 1px solid #1E2D3D;
+    border-right: 1px solid #2a2a30;
     height: 100%;
     width: 50px;
  }
@@ -103,7 +103,7 @@ footer > a > img {
 
     #social-icons > a {
         border-right: none;
-        border-left: 1px solid #1E2D3D;
+        border-left: 1px solid #2a2a30;
     }
 
     #social-icons > a > img {

@@ -35,14 +35,14 @@ main.page {
 #__nuxt {
   @apply bg-blue-background flex flex-col justify-between;
   border-radius: 7px;
-  border: 1px solid #1E2D3D;
+  border: 1px solid #2a2a30;
   height: calc(100dvh - 60px);
 }
 
 #section-content-title {
   width: 100%;
   min-height: 35px;
-  border-bottom: 1px solid #1E2D3D;
+  border-bottom: 1px solid #2a2a30;
   }
 
 #section-content-title:hover {
@@ -51,7 +51,7 @@ main.page {
 
 #section-content-title-contact {
   @apply cursor-pointer;
-  border-bottom: 1px solid #1E2D3D;
+  border-bottom: 1px solid #2a2a30;
 
   height: 35px;
 }
@@ -107,7 +107,7 @@ main.page {
   #section-content-title {
   width: 100%;
   height: 30px;
-  background-color: #1E2D3D;
+  background-color: #2a2a30;
   align-items: center;
   padding: 0 25px;
   }
@@ -118,7 +118,7 @@ main.page {
     padding: 0 25px;
     width: 100%;
     height: 35px;
-    background-color: #1E2D3D;
+    background-color: #2a2a30;
     margin-bottom: 3px
   }
 
@@ -257,19 +257,19 @@ main.page {
 /* Borders */
 
 .border-top {
-  border-top: 1px solid #1E2D3D;
+  border-top: 1px solid #2a2a30;
 }
 
 .border-right {
-  border-right: 1px solid #1E2D3D;
+  border-right: 1px solid #2a2a30;
 }
 
 .border-bot {
-  border-bottom: 1px solid #1E2D3D;
+  border-bottom: 1px solid #2a2a30;
 }
 
 .border-left {
-  border-left: 1px solid #1E2D3D;
+  border-left: 1px solid #2a2a30;
 }
 
 /* Scroll bar */
@@ -277,7 +277,7 @@ main.page {
 /* width */
 ::-webkit-scrollbar {
   width: 20px;
-  border-left: 1px solid #1E2D3D;
+  border-left: 1px solid #2a2a30;
   display: none;
 }
 
@@ -288,12 +288,12 @@ main.page {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #607B96;
+  background: #8a8a94;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #7B9BBB;
+  background: #b4b4be;
 }
 
 /* Fonts */

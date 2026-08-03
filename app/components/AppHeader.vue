@@ -47,37 +47,37 @@ export default {
 <style>
 
 #nav-link {
-  border-right: 1px solid #1E2D3D;
+  border-right: 1px solid #2a2a30;
   @apply text-menu-text font-fira_retina px-6 h-full flex items-center;
 }
 
 #nav-link-contact {
-  border-left: 1px solid #1E2D3D;
+  border-left: 1px solid #2a2a30;
   @apply text-menu-text font-fira_retina px-6 h-full flex items-center;
 }
 
 #nav-link:hover, #nav-link-contact:hover {
-  background-color: #1e2d3d74;
+  background-color: #2a2a3074;
   color: white;
 }
 
 #nav-logo {
-  border-right: 1px solid #1E2D3D;
+  border-right: 1px solid #2a2a30;
   @apply text-menu-text font-fira_retina px-6 h-full flex items-center;
 }
 
 #nav-logo:hover {
-  background-color: #1e2d3d74;
+  background-color: #2a2a3074;
   color: white;
 }
 
 #nav-link.router-link-active, #nav-link-contact.router-link-active {
-  border-bottom: 2px solid #FEA55F;
+  border-bottom: 2px solid #fcee0a;
   color: white;
 }
 
 #nav-logo.router-link-active {
-  border-right: 1px solid #1E2D3D;
+  border-right: 1px solid #2a2a30;
   border-bottom: none;
   @apply text-menu-text;
 }

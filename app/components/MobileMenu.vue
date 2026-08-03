@@ -84,11 +84,11 @@ const isActive = (route) => {
 
 <style>
 #mobile-header {
-  border-bottom: 1px solid #1E2D3D;
+  border-bottom: 1px solid #2a2a30;
 }
 
 #nav-link-mobile {
-  border-bottom: 1px solid #1E2D3D;
+  border-bottom: 1px solid #2a2a30;
   @apply text-menu-text font-fira_retina px-6 py-4 flex items-center;
 }
 
