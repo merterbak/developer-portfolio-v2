@@ -1,12 +1,12 @@
 <template>
-    <div id="project" class="lg:mx-5">
+    <div id="project" class="lg:mx-5 flex flex-col">
 
-        <span class="flex text-sm my-3">
+        <span class="proj-head flex text-sm my-3">
             <h3 class="text-purplefy font-fira_bold mr-3">Project {{ Number(index) + 1 }}</h3>
-            <h4 class="font-fira_retina text-menu-text"> // {{ project.title }}</h4>
+            <h4 class="proj-title font-fira_retina text-menu-text" :title="project.title"> // {{ project.title }}</h4>
         </span>
 
-        <div id="project-card" class="flex flex-col">
+        <div id="project-card" class="flex flex-col flex-1">
             <div id="window">
                 <div class="absolute flex right-3 top-3">
                 <img v-for="tech in project.tech" :key="tech" :src="'/icons/techs/filled/' + tech + '.svg'" alt="" class="w-6 h-6 mx-1 hover:opacity-75">
@@ -14,8 +14,8 @@
                 <img id="showcase" :src="loadedExternalImg || project.img" alt="">
             </div>
 
-            <div class="pb-8 pt-6 px-6 border-top">
-                <p v-if="!repoData && !hfData" class="text-menu-text font-fira_retina text-sm mb-5">
+            <div class="card-body pb-8 pt-6 px-6 border-top flex flex-col flex-1">
+                <p v-if="!repoData && !hfData" class="desc text-menu-text font-fira_retina text-sm mb-5">
                 {{ project.description }}
                 </p>
 
@@ -43,7 +43,7 @@
                     </span>
                 </div>
 
-                <a id="view-button" :href="project.url" target="_blank" class="text-white font-fira_retina py-2 px-4 w-fit text-xs rounded-lg">
+                <a id="view-button" :href="project.url" target="_blank" class="mt-auto text-white font-fira_retina py-2 px-4 w-fit text-xs rounded-lg">
                     view-project
                 </a>
             </div>
@@ -136,11 +136,45 @@ function preloadImg(url) {
   margin-bottom: 5px;
 }
 
+#project {
+  height: 100%;
+}
+
+/*
+ * A long name like "_diffusion-from-scratch" wraps onto a second line, which
+ * used to push that one card down while its neighbours stayed put.
+ *
+ * Truncating with an ellipsis fixed the alignment but hid part of the name,
+ * which is worse. Instead the heading always reserves two lines: short names
+ * sit on one and leave the space empty, long ones use both, and every card
+ * top lands on the same edge either way. Nothing is ever cut off.
+ */
+.proj-head {
+  flex: none;
+  flex-wrap: wrap;
+  align-items: baseline;
+  align-content: flex-start;
+  min-height: 2.7rem;
+  line-height: 1.35rem;
+}
+
+.proj-head h3 {
+  flex: none;
+  white-space: nowrap;
+}
+
+.proj-title {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 #project-card {
   border: 1px solid #2a2a30;
   background-color: #141417;
   border-radius: 15px;
   max-width: 400px;
+  width: 100%;
+  height: 100%;
 }
 
 #window {
@@ -152,6 +186,14 @@ function preloadImg(url) {
 #showcase {
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
+}
+
+/* clamp the blurb so bodies match even when descriptions differ in length */
+.desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
